@@ -1,7 +1,6 @@
+import Header from '../../Components/Header';
 export default function AdminPage() {
   return (
-    <div>
-      {/* Остальной контент страницы */}
-    </div>
+    <><Header></Header></>
   );
 }

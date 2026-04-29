@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83e44423-d02b-44e2-a493-aa3c729e632b" name="Changes" comment="All clear">
-      <change beforePath="$PROJECT_DIR$/Backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/Pages/AboutPage/AboutPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/Pages/AboutPage/AboutPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/Pages/AdminPage/AdminPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/Pages/AdminPage/AdminPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/Pages/LoginPage/Header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/Pages/LoginPage/Header.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/Pages/LoginPage/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/Pages/LoginPage/LoginPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/Pages/MainPage/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/Pages/MainPage/MainPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/hero.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/react.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/assets/vite.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
