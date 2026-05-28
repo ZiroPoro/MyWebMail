@@ -1,0 +1,11 @@
+.admin-card {
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  background: var(--social-bg);
+}
+
+.admin-card h2 {
+  margin-top: 0;
+}

@@ -12,11 +12,12 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path='/WebMail'element={<MainPage/>}/>
-      <Route path='/Login'element={<LoginPage/>}/>
-      <Route path='/Admin'element={<AdminPage/>}/>
-      <Route path='/About'element={<AboutPage/>}/>
-      <Route path='*'element={<NotFoundPage/>}/>
+      <Route path="/WebMail" element={<MainPage />} />
+      <Route path="/Login" element={<LoginPage />} />
+      <Route path="/Admin" element={<AdminPage />} />
+      <Route path="/About" element={<AboutPage />} />
+      <Route path="/" element={<MainPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   </>);
 }

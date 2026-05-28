@@ -1,0 +1,40 @@
+.mail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.mail-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  background: var(--social-bg);
+}
+
+.mail-item__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.mail-item h2 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.mail-item p {
+  margin: 0;
+  color: var(--text);
+}
+
+.status {
+  color: var(--text);
+}
+
+.status.error {
+  color: #c0392b;
+}
