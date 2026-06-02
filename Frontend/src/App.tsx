@@ -1,24 +1,44 @@
-// App.tsx
-import { Routes } from 'react-router';
-import { Route } from 'react-router';
+import { Route, Routes } from 'react-router';
+import AdminRoute from './components/AdminRoute';
+import ProtectedRoute from './components/ProtectedRoute';
+import AboutPage from './Pages/AboutPage/AboutPage';
+import AdminPage from './Pages/AdminPage/AdminPage';
+import LoginPage from './Pages/LoginPage/LoginPage';
+import MainPage from './Pages/MainPage/MainPage';
+import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 
-import LoginPage from './Pages/LoginPage/LoginPage.tsx';
-import AboutPage from './Pages/AboutPage/AboutPage.tsx';
-import AdminPage from './Pages/AdminPage/AdminPage.tsx';
-import MainPage from './Pages/MainPage/MainPage.tsx';
-import NotFoundPage from './Pages/NotFoundPage/NotFoundPage.tsx';
 function App() {
-  
   return (
-    <>
     <Routes>
-      <Route path="/WebMail" element={<MainPage />} />
       <Route path="/Login" element={<LoginPage />} />
-      <Route path="/Admin" element={<AdminPage />} />
       <Route path="/About" element={<AboutPage />} />
-      <Route path="/" element={<MainPage />} />
+      <Route
+        path="/WebMail"
+        element={
+          <ProtectedRoute>
+            <MainPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <MainPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/Admin"
+        element={
+          <AdminRoute>
+            <AdminPage />
+          </AdminRoute>
+        }
+      />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
-  </>);
+  );
 }
+
 export default App;

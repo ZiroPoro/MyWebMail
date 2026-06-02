@@ -1,26 +1,68 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
-import { useNavigate } from 'react-router';
+import { Navigate, useLocation, useNavigate } from 'react-router';
 import Header from '../../components/Header';
+import { useAuth } from '../../context/AuthContext';
 import './LoginPage.css';
+
+type Mode = 'login' | 'register';
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { user, login, register } = useAuth();
+  const [mode, setMode] = useState<Mode>('login');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
-  function handleSubmit(event: FormEvent) {
+  const redirectTo =
+    (location.state as { from?: string } | null)?.from ?? '/WebMail';
+
+  if (user) {
+    return <Navigate to={redirectTo} replace />;
+  }
+
+  async function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    if (email.trim() && password.trim()) {
-      sessionStorage.setItem('webmail-user', email.trim());
-      navigate('/WebMail');
+    setError(null);
+    setSubmitting(true);
+    try {
+      if (mode === 'login') {
+        await login(email.trim(), password);
+      } else {
+        await register(email.trim(), password);
+      }
+      navigate(redirectTo);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Ошибка авторизации');
+    } finally {
+      setSubmitting(false);
     }
   }
 
   return (
     <div>
-      <Header title="Вход в систему" />
+      <Header title={mode === 'login' ? 'Вход в систему' : 'Регистрация'} />
       <main className="page-content login-page">
+        <div className="login-tabs">
+          <button
+            type="button"
+            className={mode === 'login' ? 'active' : ''}
+            onClick={() => setMode('login')}
+          >
+            Вход
+          </button>
+          <button
+            type="button"
+            className={mode === 'register' ? 'active' : ''}
+            onClick={() => setMode('register')}
+          >
+            Регистрация
+          </button>
+        </div>
+
         <form className="login-form" onSubmit={handleSubmit}>
           <label>
             Email
@@ -38,12 +80,19 @@ export default function LoginPage() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              minLength={6}
               required
             />
           </label>
-          <button type="submit">Войти</button>
+          {error && <p className="login-error">{error}</p>}
+          <button type="submit" disabled={submitting}>
+            {submitting ? 'Подождите…' : mode === 'login' ? 'Войти' : 'Зарегистрироваться'}
+          </button>
         </form>
-        <p className="login-hint">Демо-вход: любой email и пароль.</p>
+
+        <p className="login-hint">
+          Админ: <code>admin@mywebmail.local</code> / <code>admin123</code>
+        </p>
       </main>
     </div>
   );
