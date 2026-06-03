@@ -1,46 +1,59 @@
-/* pages/LoginPage/Header.css */
+/* шапка — простые цвета, без градиента */
 .login-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 1.5rem 2rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: #5b7fa4;
+  padding: 1rem 1.5rem;
+  border-bottom: 3px solid #3d5a73;
 }
 
 .header-container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .logo-image {
-  height: 50px;
-  width: 50px;
-  filter: brightness(0) invert(1);
+  height: 42px;
+  width: 42px;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
 }
 
 .header-title {
-  color: white;
-  font-size: 1.8rem;
+  color: #fff;
+  font-size: 1.4rem;
   margin: 0;
   font-weight: 600;
-  letter-spacing: -0.5px;
 }
 
-.header-decoration {
-  width: 50px;
-  height: 50px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #eee;
+}
+
+.btn-logout {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #eee;
+  color: #333;
+  cursor: pointer;
+  font-size: 0.8rem;
 }
 
 @media (max-width: 768px) {
   .header-title {
-    font-size: 1.2rem;
-  }
-  
-  .logo-image {
-    height: 35px;
+    font-size: 1.1rem;
   }
 }

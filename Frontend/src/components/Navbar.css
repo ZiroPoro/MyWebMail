@@ -1,25 +1,19 @@
-.Navbar{
-    display: flex;
-    margin: 0 auto;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    gap: 0.5rem;
+.Navbar {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
 }
 
 .Navbar a {
-    text-decoration: none;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 10px 14px;
-    background-color: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 12px;
-    transition: background-color 0.2s;
+  text-decoration: none;
+  color: #222;
+  font-size: 13px;
+  padding: 6px 10px;
+  background: #dce6f0;
+  border: 1px solid #9ab;
+  border-radius: 4px;
 }
 
 .Navbar a:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+  background: #c5d6e8;
 }
-

@@ -1,40 +1,96 @@
+.mail-page {
+  text-align: left;
+}
+
+.mail-greeting {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.mail-tabs {
+  display: flex;
+  gap: 0.35rem;
+  margin: 1rem 0;
+}
+
+.mail-tabs button {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #888;
+  background: #f4f4f4;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.mail-tabs button.active {
+  background: #d8e4f0;
+}
+
+.compose-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 520px;
+}
+
+.compose-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.compose-form input,
+.compose-form textarea {
+  border: 1px solid #999;
+  padding: 0.45rem;
+  font: inherit;
+  border-radius: 3px;
+}
+
+.compose-form button {
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  background: #5b7fa4;
+  color: #fff;
+  border: 1px solid #3d5a73;
+  cursor: pointer;
+}
+
 .mail-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  text-align: left;
 }
 
 .mail-item {
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1rem 1.25rem;
-  margin-bottom: 1rem;
-  background: var(--social-bg);
+  border: 1px solid #bbb;
+  padding: 0.85rem;
+  margin-bottom: 0.65rem;
+  background: #fafafa;
 }
 
 .mail-item__head {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
-  font-size: 0.9rem;
-  color: var(--text);
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #555;
 }
 
 .mail-item h2 {
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
+  font-size: 1rem;
+  margin: 0.4rem 0;
 }
 
 .mail-item p {
   margin: 0;
-  color: var(--text);
+  white-space: pre-wrap;
 }
 
 .status {
-  color: var(--text);
+  color: #444;
 }
 
 .status.error {
-  color: #c0392b;
+  color: #a00;
 }

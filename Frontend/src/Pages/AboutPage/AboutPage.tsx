@@ -10,9 +10,9 @@ export default function AboutPage() {
           <strong>MyWebMail</strong> — учебный веб-клиент почты на React и Spring Boot.
         </p>
         <ul>
-          <li>Просмотр демо-входящих через REST API</li>
-          <li>Маршрутизация страниц: главная, вход, админка, о проекте</li>
-          <li>Готовность к подключению SMTP/IMAP в следующих итерациях</li>
+          <li>JWT, Spring Security, PostgreSQL, Flyway, Docker</li>
+          <li>Отправка писем между пользователями</li>
+          <li>Админ-панель: пользователи и даты регистрации</li>
         </ul>
       </main>
     </>
