@@ -22,7 +22,7 @@ feature/frontend-auth   →  вход по JWT на фронте + админк�
         ↓
 feature/mail-ui         →  отправка писем между пользователями
         ↓
-master                  →  README + EXAM_PREP (итог)
+master (июнь)           →  документация, правки запуска и UI входа
 ```
 
 ---
@@ -64,7 +64,7 @@ cd Backend && mvn spring-boot:run
 
 ### `feature/docker-flyway` (коммит `8d0fd03`, 29.05.2026)
 
-**Что делал:** `docker-compose.yml` для PostgreSQL, миграция Flyway `V1__schema.sql`, обновил `pom.xml` (JPA, Security, JWT, Flyway).
+**Что делал:** `docker-compose.yml` для PostgreSQL, миграция Flyway `V1__schema.sql`, обновил `pom.xml` (JPA, Security, JWT, Flyway). В финале порт БД на хосте — **5433** (см. последние коммиты `master`).
 
 **Зачем:** отделить инфраструктуру БД от бизнес-логики — так проще отлаживать Flyway на сдаче (10 КТ).
 
@@ -118,11 +118,20 @@ cd Backend && mvn spring-boot:run
 
 ---
 
-### `master` (коммит `20dff66`, 04.06.2026) — **итог**
+### `master` (апрель — июнь 2026) — **итог**
 
-**Что делал:** `README.md`, `EXAM_PREP.md` (все КТ 1–10), финальная документация для защиты.
+**Что делал по этапам в `master`:**
 
-**Содержит всё** из веток выше в одной линии истории.
+| Период | Коммиты (смысл) |
+|--------|------------------|
+| 04.06 | `README.md`, `EXAM_PREP.md` — документация к защите |
+| 03.06 | Почта: входящие / отправленные / написать; простой UI |
+| 02.06 | JWT на React, админ-панель, защищённые маршруты |
+| 01.06 | REST-контроллеры, SOLID-сервисы, `ControllerAdvice` |
+| 30–31.05 | JPA, JWT, Security, Flyway, Docker |
+| 05.06 | Postgres на порту **5433**; CORS; прокси Vite → `localhost:8080`; чистая страница входа |
+
+**Содержит всё** из feature-веток выше в одной истории + исправления окружения (macOS: Jenkins на `127.0.0.1:8080`).
 
 ```bash
 git checkout master
@@ -130,6 +139,8 @@ docker compose up -d
 cd Backend && mvn spring-boot:run
 cd Frontend && npm run dev
 ```
+
+Документация: [README.md](./README.md), [EXAM_PREP.md](./EXAM_PREP.md), [BRANCHES.md](./BRANCHES.md).
 
 ---
 
@@ -156,7 +167,7 @@ cd Frontend && npm run dev
 | `feature/backend-api` | 01.06 | REST + SOLID | В master |
 | `feature/frontend-auth` | 02.06 | JWT на React | В master |
 | `feature/mail-ui` | 03.06 | Почта user→user | В master |
-| `master` | 04.06 | Документация | **Сдаём** |
+| `master` | 04–05.06 | Итог + фиксы запуска | **Сдаём** |
 
 ---
 

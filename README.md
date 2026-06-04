@@ -4,7 +4,8 @@
 
 Репозиторий: [ZiroPoro/MyWebMail](https://github.com/ZiroPoro/MyWebMail)
 
-Подготовка к защите: **[EXAM_PREP.md](./EXAM_PREP.md)**
+- Подготовка к защите: **[EXAM_PREP.md](./EXAM_PREP.md)**
+- История веток: **[BRANCHES.md](./BRANCHES.md)**
 
 ## Требования
 
@@ -40,7 +41,9 @@ npm install
 npm run dev
 ```
 
-`http://localhost:5173` — прокси `/api` → `8080`.
+Открывайте **`http://localhost:5173`** (не `index.html` и не `127.0.0.1`, если прокси настроен на `localhost`).
+
+Vite проксирует `/api` → `http://localhost:8080` (важно на macOS, см. ниже).
 
 ## Учётные записи
 
@@ -68,8 +71,15 @@ npm run dev
 | GET | `/api/mail/inbox` | Входящие (пагинация) |
 | GET | `/api/mail/sent` | Отправленные |
 | POST | `/api/mail/send` | Отправить письмо |
+| GET | `/api/mail/addresses` | Список email (для автодополнения) |
 | GET | `/api/admin/users` | Список users (ADMIN) |
 | DELETE | `/api/admin/users/{id}` | Удалить user (ADMIN) |
+
+## Если «Failed to fetch»
+
+1. Запущены **оба** процесса: `mvn spring-boot:run` и `npm run dev`.
+2. Сайт открыт по адресу из терминала Vite (`http://localhost:5173`).
+3. `curl http://localhost:8080/api/health` — ответ с `jwt-postgres-v2`.
 
 ## Если при входе «Forbidden»
 
@@ -102,5 +112,6 @@ npm run dev
 - `repository/` — Spring Data
 - `service/` — интерфейсы + `*Impl`
 - `controller/` — REST
-- `security/` — JWT, фильтр, `SecurityConfig`
-- `exception/` — `@ControllerAdvice`
+- `security/` — JWT, `JwtAuthFilter`, `UserPrincipal`
+- `config/` — `SecurityConfig`, `CorsConfig`, `DataSeeder`
+- `exception/` — `@ControllerAdvice`, `ErrorResponse`
