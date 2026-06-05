@@ -36,3 +36,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Локальные материалы к сдаче (не в репозитории) ###
+EXAM_PREP.md
+BRANCHES.md

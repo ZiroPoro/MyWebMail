@@ -4,9 +4,6 @@
 
 Репозиторий: [ZiroPoro/MyWebMail](https://github.com/ZiroPoro/MyWebMail)
 
-- Подготовка к защите: **[EXAM_PREP.md](./EXAM_PREP.md)**
-- История веток: **[BRANCHES.md](./BRANCHES.md)**
-
 ## Требования
 
 - Docker
