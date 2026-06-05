@@ -67,10 +67,11 @@ export default function LoginPage() {
           <label>
             Email
             <input
-              type="email"
+              type="text"
+              autoComplete="username"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="user@example.com"
+              placeholder="email@example.com"
               required
             />
           </label>
@@ -89,10 +90,6 @@ export default function LoginPage() {
             {submitting ? 'Подождите…' : mode === 'login' ? 'Войти' : 'Зарегистрироваться'}
           </button>
         </form>
-
-        <p className="login-hint">
-          Админ: <code>admin@mywebmail.local</code> / <code>admin123</code>
-        </p>
       </main>
     </div>
   );
