@@ -10,6 +10,10 @@ public class HealthController {
 
     @GetMapping("/api/health")
     public Map<String, String> health() {
-        return Map.of("status", "ok", "service", "MyWebMail");
+        return Map.of(
+                "status", "ok",
+                "service", "MyWebMail",
+                "apiVersion", "jwt-postgres-v2"
+        );
     }
 }
