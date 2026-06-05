@@ -9,8 +9,15 @@ export default defineConfig({
     babel({ presets: [reactCompilerPreset()] })
   ],
   server: {
+    host: true,
+    port: 5173,
     proxy: {
-      '/api': 'http://localhost:8080',
+      '/api': {
+        // localhost, не 127.0.0.1: на Mac на 8080 может быть Jenkins
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
 })
