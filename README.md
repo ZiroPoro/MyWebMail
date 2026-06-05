@@ -19,7 +19,9 @@
 docker compose up -d
 ```
 
-PostgreSQL: `localhost:5432`, БД `mywebmail`, user/pass `webmail`.
+PostgreSQL: `localhost:5433` (порт **5433**, чтобы не конфликтовать с локальным Postgres), БД `mywebmail`, user/pass `webmail`.
+
+Проверка backend: `curl http://localhost:8080/api/health` — должно быть `"apiVersion":"jwt-postgres-v2"`. Если версии нет — запущена **старая** сборка без входа.
 
 ## 2. Backend
 
@@ -68,6 +70,25 @@ npm run dev
 | POST | `/api/mail/send` | Отправить письмо |
 | GET | `/api/admin/users` | Список users (ADMIN) |
 | DELETE | `/api/admin/users/{id}` | Удалить user (ADMIN) |
+
+## Если при входе «Forbidden»
+
+На macOS на порту **8080** иногда два сервиса: **Spring** на `localhost`, **Jenkins** на `127.0.0.1`.  
+Прокси Vite должен идти на `http://localhost:8080` (уже так в `vite.config.ts`).
+
+1. Перезапустите Frontend: `Ctrl+C` → `npm run dev`
+2. Проверка:  
+   `curl -X POST http://localhost:5173/api/auth/login -H "Content-Type: application/json" -d '{"email":"admin@mywebmail.local","password":"admin123"}'`  
+   должен вернуть JSON с `token`, а не HTML.
+3. Лишний Java на 8080: `lsof -i :8080` — оставьте только MyWebMail.
+
+## Если при входе «Not Found»
+
+1. Остановите старый Java на 8080: `lsof -i :8080` → `kill <PID>`
+2. `docker compose up -d` (БД на порту **5433**)
+3. `cd Backend && mvn spring-boot:run`
+4. Убедитесь: `curl http://localhost:8080/api/health` содержит `jwt-postgres-v2`
+5. Вход: `admin@mywebmail.local` / `admin123`
 
 ## Стек
 
